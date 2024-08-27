@@ -1,0 +1,8 @@
+{
+  "label": "Node.js Events",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "The event system, building event emitters, and consuming event emitters."
+  }
+}

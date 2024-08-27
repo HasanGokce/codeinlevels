@@ -1,0 +1,8 @@
+{
+  "label": "JS Hoisting",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Hoisting is when JavaScript moves variable and function declarations to the top of their scope."
+  }
+}

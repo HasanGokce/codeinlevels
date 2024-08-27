@@ -1,0 +1,8 @@
+{
+  "label": "Asynchronous Programming",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Asynchronous programming is a form of parallel programming that allows a unit of work to run separately from the primary application thread."
+  }
+}

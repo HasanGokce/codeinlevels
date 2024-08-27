@@ -1,0 +1,36 @@
+---
+title: "Level 3"
+---
+
+import Levels from '@site/src/components/atoms/Levels/';
+
+# Node.js CLI 3
+
+<Levels />
+
+For sophisticated CLI applications, consider using a framework like `oclif` or `gluegun`. These provide structure, testing utilities, and advanced features like command grouping and plugins.
+
+### Example using `commander`:
+
+```javascript
+#!/usr/bin/env node
+
+const { program } = require('commander');
+
+program
+  .version('1.0.0')
+  .description('A CLI for greeting users')
+  .option('-n, --name <name>', 'name to greet', 'World')
+  .option('-u, --uppercase', 'convert greeting to uppercase')
+  .action((options) => {
+    let greeting = `Hello, ${options.name}!`;
+    if (options.uppercase) {
+      greeting = greeting.toUpperCase();
+    }
+    console.log(greeting);
+  });
+
+program.parse(process.argv);
+```
+
+This creates a more feature-rich CLI with options and flags. Install `commander` with `npm install commander`, then run the script with various options like `node advanced-greet.js -n Alice -u`.

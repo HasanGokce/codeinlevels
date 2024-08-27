@@ -1,0 +1,91 @@
+---
+title: "Level 2"
+---
+
+
+# Understanding Hashmaps: A Deep Dive for Mid-Level Developers
+
+## Introduction
+
+Hashmaps, also known as hash tables or dictionaries in some programming languages, are fundamental data structures in computer science. They provide an efficient way to store and retrieve key-value pairs, making them essential for various algorithms and applications. As a mid-level developer, understanding Hashmaps in depth can significantly improve your problem-solving skills and code efficiency.
+
+## Explanation
+
+At its core, a Hashmap is like a sophisticated address book. Imagine you have a magical address book that can instantly find any contact's information, regardless of how many entries it contains. That's essentially what a Hashmap does for your data.
+
+In programming terms, a Hashmap uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found. This allows for efficient insertion, deletion, and lookup operations, typically with an average time complexity of O(1).
+
+## Step-by-Step Breakdown
+
+Let's break down how a Hashmap works:
+
+1. **Hash Function**: When you add a key-value pair to a Hashmap, the key is passed through a hash function. This function converts the key into a numeric value, which is used as an index in the underlying array.
+
+2. **Index Calculation**: The numeric value from the hash function is typically modulated by the array size to ensure it fits within the array bounds.
+
+3. **Bucket Storage**: At the calculated index, the key-value pair is stored in a "bucket". A bucket can hold multiple entries in case of hash collisions.
+
+4. **Collision Handling**: Sometimes, two different keys might produce the same hash value. This is called a collision. Hashmaps handle collisions using techniques like chaining (where each bucket is a linked list) or open addressing.
+
+5. **Retrieval**: When you want to retrieve a value, the key goes through the same hashing process. The Hashmap then goes directly to the calculated index and returns the associated value.
+
+6. **Resizing**: As more elements are added, the Hashmap may need to resize to maintain efficiency. This process, called rehashing, involves creating a larger underlying array and reinserting all elements.
+
+## Code Example
+
+Here's a simple implementation of a Hashmap in Python:
+
+```python
+class Hashmap:
+    def __init__(self, size=10):
+        self.size = size
+        self.map = [[] for _ in range(self.size)]
+    
+    def _get_hash(self, key):
+        return hash(key) % self.size
+    
+    def add(self, key, value):
+        key_hash = self._get_hash(key)
+        key_value = [key, value]
+        
+        if self.map[key_hash] is None:
+            self.map[key_hash] = list([key_value])
+            return True
+        else:
+            for pair in self.map[key_hash]:
+                if pair[0] == key:
+                    pair[1] = value
+                    return True
+            self.map[key_hash].append(key_value)
+            return True
+    
+    def get(self, key):
+        key_hash = self._get_hash(key)
+        if self.map[key_hash] is not None:
+            for pair in self.map[key_hash]:
+                if pair[0] == key:
+                    return pair[1]
+        return None
+
+# Usage
+h = Hashmap()
+h.add('key1', 'value1')
+h.add('key2', 'value2')
+print(h.get('key1'))  # Output: value1
+```
+
+This implementation uses chaining for collision resolution. Each bucket is a list that can hold multiple key-value pairs.
+
+## Summary
+
+Hashmaps are powerful data structures that offer fast access, insertion, and deletion of key-value pairs. They work by using a hash function to compute an index for each key, allowing for constant-time operations on average. Understanding the inner workings of Hashmaps, including concepts like hash functions, collision resolution, and rehashing, is crucial for optimizing your code and solving complex problems efficiently.
+
+## Quiz
+
+1. What is the average time complexity for insertion and lookup operations in a Hashmap?
+2. Name two methods for handling collisions in a Hashmap.
+3. What happens when a Hashmap needs to resize?
+4. In the Python example, what data structure is used for each bucket?
+5. Why is it important to choose a good hash function when implementing a Hashmap?
+
+Remember, mastering Hashmaps and understanding their internal mechanics will greatly enhance your ability to write efficient and scalable code. Keep practicing and exploring different implementations to deepen your knowledge!

@@ -1,0 +1,8 @@
+{
+  "label": "JavaScript Design Patterns",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "JavaScript is a dynamic, prototype-based language. It has a few primitives, and everything else is considered an object."
+  }
+}

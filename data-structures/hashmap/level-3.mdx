@@ -1,0 +1,105 @@
+---
+title: "Level 3"
+---
+
+
+# Understanding Hashmaps: A Deep Dive for Senior Developers
+
+## Introduction
+
+As senior developers, you're likely familiar with Hashmaps (also known as Hash tables or Dictionaries in some languages). However, understanding the intricacies of their implementation and performance characteristics can help you make more informed decisions when designing and optimizing your code. In this post, we'll explore Hashmaps in depth, focusing on their internal workings and advanced use cases.
+
+## Explanation
+
+At its core, a Hashmap is a data structure that implements an associative array abstract data type, providing a way to store key-value pairs for efficient retrieval. What sets Hashmaps apart is their ability to achieve average O(1) time complexity for insert, delete, and lookup operations.
+
+Think of a Hashmap as a highly organized library. Instead of searching through every book to find what you need, you have a magical index that instantly tells you the exact location of any book you request. This is similar to how a Hashmap uses a hash function to compute an index for each key, allowing for rapid access to the associated value.
+
+## Step-by-Step Breakdown
+
+Let's break down the key components and processes of a Hashmap:
+
+1. Hash Function:
+   The hash function is the core of a Hashmap's efficiency. It takes a key as input and produces an integer (hash code) as output. An ideal hash function should:
+   - Be deterministic (same input always produces the same output)
+   - Distribute keys uniformly across the array
+   - Be fast to compute
+
+2. Array (Bucket Array):
+   The Hashmap uses an array to store key-value pairs. The size of this array is typically a power of 2 for efficient modulo operations.
+
+3. Collision Resolution:
+   When two keys hash to the same index (a collision), we need a strategy to handle it. Common methods include:
+   - Chaining: Each array element contains a linked list of entries.
+   - Open Addressing: Probing for the next available slot in the array.
+
+4. Load Factor and Resizing:
+   The load factor is the ratio of occupied slots to the total size of the array. When it exceeds a threshold (typically 0.75), the Hashmap resizes to maintain performance.
+
+5. Iteration:
+   Hashmaps are typically unordered, but some implementations (like LinkedHashMap in Java) maintain insertion order.
+
+## Code Example
+
+Let's implement a simple Hashmap in Python to illustrate these concepts:
+
+```python
+class Hashmap:
+    def __init__(self, size=16):
+        self.size = size
+        self.buckets = [[] for _ in range(self.size)]
+
+    def _hash(self, key):
+        return hash(key) % self.size
+
+    def set(self, key, value):
+        index = self._hash(key)
+        for item in self.buckets[index]:
+            if item[0] == key:
+                item[1] = value
+                return
+        self.buckets[index].append([key, value])
+
+    def get(self, key):
+        index = self._hash(key)
+        for item in self.buckets[index]:
+            if item[0] == key:
+                return item[1]
+        raise KeyError(key)
+
+    def delete(self, key):
+        index = self._hash(key)
+        for i, item in enumerate(self.buckets[index]):
+            if item[0] == key:
+                del self.buckets[index][i]
+                return
+        raise KeyError(key)
+
+# Usage
+hm = Hashmap()
+hm.set("name", "Alice")
+hm.set("age", 30)
+print(hm.get("name"))  # Output: Alice
+hm.delete("age")
+```
+
+This implementation uses chaining for collision resolution and a simple modulo-based hash function. In a production environment, you'd want to implement dynamic resizing and a more sophisticated hash function.
+
+## Summary
+
+Hashmaps are powerful data structures that offer O(1) average-case time complexity for basic operations. They achieve this through clever use of hash functions and collision resolution strategies. Understanding the internals of Hashmaps can help you:
+
+1. Choose the right Hashmap implementation for your specific use case
+2. Implement custom Hashmaps when needed
+3. Debug and optimize Hashmap-related code more effectively
+4. Make informed decisions about when to use Hashmaps vs. other data structures
+
+## Quiz
+
+1. What is the average time complexity for insert, delete, and lookup operations in a well-implemented Hashmap?
+2. Name two common strategies for handling collisions in Hashmaps.
+3. What is the purpose of the load factor in a Hashmap, and what typically happens when it exceeds a certain threshold?
+4. How does the choice of hash function affect the performance of a Hashmap?
+5. In the provided Python example, how are collisions handled?
+
+Remember, while Hashmaps are incredibly efficient for many use cases, they're not always the best choice. Consider factors like memory usage, key distribution, and specific access patterns when deciding whether to use a Hashmap in your projects.

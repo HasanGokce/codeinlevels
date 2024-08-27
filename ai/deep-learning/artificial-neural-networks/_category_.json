@@ -1,0 +1,8 @@
+{
+  "label": "Artificial Neural Networks (ANN)",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Applications: Image recognition, speech recognition, and general data classification."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "JS Basics",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js. The language is actively being developed; and because of its multi-paradigm property, allows for many styles of programming. JavaScript is a dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles."
+  }
+}

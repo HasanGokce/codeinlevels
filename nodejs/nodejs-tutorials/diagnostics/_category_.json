@@ -1,0 +1,8 @@
+{
+  "label": "Node.js Diagnostics",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Debugging Node.js and basic performance analysis."
+  }
+}

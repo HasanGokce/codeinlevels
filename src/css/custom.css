@@ -1,0 +1,98 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #bfa3ff;
+  --ifm-color-primary-dark: #a279ff;
+  --ifm-color-primary-darker: #9364ff;
+  --ifm-color-primary-darkest: #6826ff;
+  --ifm-color-primary-light: #dccdff;
+  --ifm-color-primary-lighter: #ebe2ff;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-background-color: #000000;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* You can also include additional CSS files. */
+.levelButtonSelected {
+  background-color: var(--ifm-color-primary-darker) !important; /* Green */
+}
+
+.levelButton {
+  background-color: var(--ifm-background-color); /* Green */
+  border: none;
+  color: white;
+  padding: 2px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+
+.levelButton:hover {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Navbar menü linklerinin yazı tipi boyutunu küçültmek için */
+.navbar__item {
+  font-size: 12px; /* İstediğiniz küçük boyutu buraya girin */
+}
+
+/* Navbar logonun yazı tipi boyutunu küçültmek için */
+.navbar__brand {
+  font-size: 14px; /* İstediğiniz küçük boyutu buraya girin */
+}
+
+/* Sidebar menü linklerinin yazı tipi boyutunu küçültmek için */
+.theme-doc-sidebar-item {
+  font-size: 12px; /* İstediğiniz küçük boyutu buraya girin */
+}
+
+/* Sidebar'daki alt başlıkların yazı tipi boyutunu küçültmek için */
+.theme-doc-sidebar-item-category {
+  font-size: 12px; /* İstediğiniz küçük boyutu buraya girin */
+}
+
+/* Sidebar'daki linklerin yazı tipi boyutunu küçültmek için */
+.theme-doc-sidebar-item-link {
+  font-size: 12px; /* İstediğiniz küçük boyutu buraya girin */
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.25em; /* Başlık 1 */
+
+}
+
+h2 {
+  font-size: 1.5em; /* Başlık 2 */
+  line-height: 1.3333333;
+}
+
+h3 {
+  font-size: 1.25em; /* Başlık 3 */
+}

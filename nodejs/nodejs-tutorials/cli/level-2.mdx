@@ -1,0 +1,22 @@
+---
+title: "Level 2"
+---
+
+import Levels from '@site/src/components/atoms/Levels/';
+
+# Node.js CLI 2
+
+<Levels />
+
+Node.js provides built-in modules like `process` and `readline` to handle command-line arguments and user input. You can also use third-party packages like `commander` or `yargs` to create more complex CLI applications.
+
+### Example using `process.argv`:
+
+```javascript
+#!/usr/bin/env node
+
+const name = process.argv[2] || "World";
+console.log(`Hello, ${name}!`);
+```
+
+Run this with `node greet.js Alice` to see "Hello, Alice!".
