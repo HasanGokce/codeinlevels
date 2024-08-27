@@ -12,6 +12,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Set up Node.js 
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # Node.js versiyonunu projenize göre değiştirin
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build  # Projenizin build komutuna göre değiştirin
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
