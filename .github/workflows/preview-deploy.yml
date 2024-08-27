@@ -43,3 +43,5 @@ jobs:
         uses: peter-evans/commit-comment@v1
         with:
           body: "Preview available at: https://www.codeinlevels.com/previews/${{ steps.deploy.outputs.RANDOM_PATH }}/"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
