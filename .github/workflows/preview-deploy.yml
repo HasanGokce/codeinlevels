@@ -40,6 +40,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Comment on Pull Request with Preview Link
-        uses: peter-evans/commit-comment@v1
+        uses: peter-evans/commit-comment@v3.0.0
         with:
           body: "Preview available at: https://www.codeinlevels.com/previews/${{ steps.deploy.outputs.RANDOM_PATH }}/"
