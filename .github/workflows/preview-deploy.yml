@@ -47,7 +47,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for reporting! Preview available at: https://www.codeinlevels.com/previews/aaa/'
+              body: '👋 Thanks! Preview available at: http://www.codeinlevels.com/previews/${{ steps.deploy.outputs.RANDOM_PATH }}/'
             })
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
