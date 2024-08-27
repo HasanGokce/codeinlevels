@@ -40,7 +40,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Comment on Pull Request with Preview Link
-      - uses: actions/github-script@v6
+        uses: actions/github-script@v6
         with:
           script: |
             github.rest.issues.createComment({
