@@ -40,8 +40,14 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Comment on Pull Request with Preview Link
-        uses: peter-evans/commit-comment@v1
+      - uses: actions/github-script@v6
         with:
-          body: "Preview available at: https://www.codeinlevels.com/previews/${{ steps.deploy.outputs.RANDOM_PATH }}/"
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting! Preview available at: https://www.codeinlevels.com/previews/${{ steps.deploy.outputs.RANDOM_PATH }}/'
+            })
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
