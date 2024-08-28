@@ -3,29 +3,49 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+ /* @import url('https://fonts.googleapis.com/css2family=Poppins:wght@400;700&display=swap'); */
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../../static/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('../../static/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('../../static/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-font-family-base: 'Poppins-Regular';
+  --ifm-heading-font-family: 'Poppins-Bold';
+  --ifm-font-family-monospace: 'Poppins-Regular';
+  --ifm-color-primary: #1adc9c;
+  --ifm-color-primary-dark: #979797;
+  --ifm-color-primary-darker: #8f8f8f;
+  --ifm-color-primary-darkest: #767676;
+  --ifm-color-primary-light: #b9b9b9;
+  --ifm-color-primary-lighter: #c1c1c1;
+  --ifm-color-primary-lightest: #dadada;
+  --ifm-background-color: #efefef;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #bfa3ff;
-  --ifm-color-primary-dark: #a279ff;
-  --ifm-color-primary-darker: #9364ff;
-  --ifm-color-primary-darkest: #6826ff;
-  --ifm-color-primary-light: #dccdff;
-  --ifm-color-primary-lighter: #ebe2ff;
-  --ifm-color-primary-lightest: #ffffff;
+  --ifm-color-primary: #1adc9c;
+  --ifm-color-primary-dark: #e7e7e7;
+  --ifm-color-primary-darker: #8f8f8f;
+  --ifm-color-primary-darkest: #3d3d3d;
+  --ifm-color-primary-light: #4f4f4f;
+  --ifm-color-primary-lighter: #454545;
+  --ifm-color-primary-lightest: #3d3d3d;
   --ifm-background-color: #000000;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
@@ -36,17 +56,20 @@
 }
 
 .levelButton {
-  background-color: var(--ifm-background-color); /* Green */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: var(--ifm-color-primary); /* Green */
+  height: 40px;
   border: none;
-  color: white;
+  color: "#fff" !important; /* White */
   padding: 2px 24px;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   font-weight: bold;
   border-radius: 2px;
   margin-right: 4px;
+  
 }
 
 .levelButton:hover {

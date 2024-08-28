@@ -24,7 +24,11 @@ export default function Button() {
   const renderButtons = () => {
     return buttons.map((button) => {
       return (
-        <a href={`./${button.path}`} key={button.path}>
+        <a
+          href={`./${button.path}`}
+          key={button.path}
+          style={{ color: "#fff" }}
+        >
           <div
             className={
               lastPath === button.path
@@ -32,7 +36,9 @@ export default function Button() {
                 : "levelButton"
             }
             key={button.path}
-          ></div>
+          >
+            {button.name}
+          </div>
         </a>
       );
     });
